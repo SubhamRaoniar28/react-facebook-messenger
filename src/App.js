@@ -6,6 +6,7 @@ import Message from './Message';
 import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
 import SendIcon from '@material-ui/icons/Send';
+import Logo from './images/messenger-logo.png';
 
 function App() {
 
@@ -44,26 +45,33 @@ function App() {
 //in above it's returning a <p><p/> tag
   return (
     <div className="App">
-      <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100" />
+      <img src={Logo} alt="Messenger Logo"/>
       <h1>Facebook Messenger</h1>
       <h2>Welcome {username}</h2>
 
       <form className="app__form">
         <FormControl className="app__formControl">
-          <Input className="app__input" placeholder="Enter a message..." value={input} onChange={event => setInput(event.target.value)} />
-          <IconButton className="app__iconButton" disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}>
+
+          <Input className="app__input" placeholder="Enter a message..."
+           value={input} onChange={event => setInput(event.target.value)} />
+
+          <IconButton className="app__iconButton" disabled={!input} variant="contained"
+           color="primary" type="submit" onClick={sendMessage}>
             <SendIcon />
           </IconButton>
+
         </FormControl>       
       </form>
 
-      <FlipMove>
-        {
-          messages.map(({id, message}) => (
-            <Message key={id} message={message} username={username} />
-          ))
-        }
-      </FlipMove>
+      <div className="app__messageContainer">
+        <FlipMove>
+          {
+            messages.map(({id, message}) => (
+              <Message key={id} message={message} username={username} />
+            ))
+          }
+        </FlipMove>
+      </div>
       
     </div>
   );

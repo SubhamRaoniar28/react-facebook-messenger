@@ -2,19 +2,25 @@
   text-align: center;
 }
 
+
 .app__form {
   padding: 20px;
   position: fixed;
   bottom: 0;
-  z-index: 1;
+  z-index: 999;
   background-color: #e9e9eb;
-  width: 96%;
-  margin: 20px;
+  width: 100%;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
 }
 
 .app__formControl {
   display: flex !important;
+  align-items: center;
   flex-direction: row !important;
+  justify-content: space-between;
+  padding-right: 20px !important;
 }
 
 .app__input {
@@ -23,8 +29,12 @@
 
 .app__iconButton {
   flex: 0;
-  margin-right: 10px !important;
 }
+
+.MuiCardContent-root:last-child {
+  padding-bottom: 16px !important;
+}
+
 
 
 
